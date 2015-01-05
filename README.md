@@ -1,4 +1,4 @@
-cg-interface
+hs-interface
 ============
 
 ```ruby
