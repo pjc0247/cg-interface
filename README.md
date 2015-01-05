@@ -125,3 +125,14 @@ class WhirlingBlades < Spell
   end
 end
 ```
+```ruby
+class FrostwolfWarlord < Minion
+  cost 5
+  attack 4, life 4
+  
+  def battlecry
+    attack += owner.field.count
+    life += owner.field.count
+  end
+end
+```
