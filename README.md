@@ -2,6 +2,25 @@ hs-interface
 ============
 
 ```ruby
+class Player
+  property :id
+  
+  property :life
+  property :weapon
+  property :spell
+  
+  property :field
+  property :deck
+  property :hand
+end
+```
+```ruby
+class Field < Array
+  def summon minion
+  end
+end
+```
+```ruby
 class Card
   property :id
   property :klass
@@ -73,7 +92,6 @@ Methods
     * :minion
 * __deal!__(damage)
 * __slience!__
-* __summon__(type)
 
 Example
 ----
@@ -84,7 +102,7 @@ class HauntedCreeper < Minion
   attack 1, life 2
   
   def deathrattle
-    2.times do { summon :spectral_spider }
+    2.times do { @owner.field.summon! :spectral_spider }
   end
 end
 ```
@@ -131,8 +149,8 @@ class FrostwolfWarlord < Minion
   attack 4, life 4
   
   def battlecry
-    attack += owner.field.count
-    life += owner.field.count
+    attack += @owner.field.count
+    life += @owner.field.count
   end
 end
 ```
