@@ -78,10 +78,10 @@ Methods
 Example
 ----
 ```ruby
-class HauntedCreeper
-  cost :2
+class HauntedCreeper < Minion
+  cost 2
   klass :common
-  attack :1, life :2
+  attack 1, life 2
   
   def deathrattle
     2.times do { summon :spectral_spider }
@@ -89,21 +89,21 @@ class HauntedCreeper
 end
 ```
 ```ruby
-class AnnoyingOTron
-  cost :2
+class AnnoyingOTron < Minion
+  cost 2
   klass :common
   race :mech
-  attack :1, life :2
+  attack 1, life 2
   
   divine :true
   taunt :true
 end
 ```
 ```ruby
-class KeeperOfTheGroove
-  cost :4
+class KeeperOfTheGroove < Minion
+  cost 4
   klass :druid
-  attack :2, life :4
+  attack 2, life 4
   
   def battlecry
     choose :option, [:deal_2_damage, :slience] do |chosen|
@@ -113,6 +113,15 @@ class KeeperOfTheGroove
         choose :minion {|minion| minion.slience!}
       end
     end
+  end
+end
+```
+```ruby
+class WhirlingBlades < Spell
+  cost 1
+  
+  def invoke
+    choose :minion {|minion| minion.attack += 1}
   end
 end
 ```
