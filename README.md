@@ -13,17 +13,26 @@ class Card
 end
 ```
 ```ruby
-class Minion < Card
+class Attackable < Card
   property :life, :attack
   
+  abstract :battlecry
+  abstract :deathrattle
+  abstract :attack
+end
+```
+```ruby
+class Weapon < Attackable
+end
+```
+```ruby
+class Minion < Attackable
   property :taunt?
   property :stealth?
   property :targetable?
   property :poison?
   property :divine?
-  
-  abstract :battlecry
-  abstract :deathrattle
+
   abstract :damaged
   abstract :summoned_other
   abstract :turn_started
@@ -41,14 +50,6 @@ class Spell < Card
   abstract :attack
   abstract :damaged
   abstract :spell
-end
-```
-```ruby
-class Weapon < Card
-  property :life, :attack
-  
-  abstract :battlecry
-  abstract :deathrattle
 end
 ```
 
