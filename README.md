@@ -9,6 +9,8 @@ class Player
   property :weapon
   property :spell
   
+  property :spell_damage
+  
   property :field
   property :deck
   property :hand
