@@ -64,6 +64,17 @@ class Spell < Card
 end
 ```
 
+Methods
+----
+* __choose__(type, args)
+  * type
+    * :option
+    * :character
+    * :minion
+* __deal!__(damage)
+* __slience!__
+* __summon__(type)
+
 Example
 ----
 ```ruby
