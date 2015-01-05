@@ -23,16 +23,27 @@ end
 ```
 ```ruby
 class Weapon < Attackable
+  # property :life, :attack
+  
+  # abstract :battlecry
+  # abstract :deathrattle
+  # abstract :attack
 end
 ```
 ```ruby
 class Minion < Attackable
+  # property :life, :attack
+  
   property :taunt?
   property :stealth?
   property :targetable?
   property :poison?
   property :divine?
 
+  # abstract :battlecry
+  # abstract :deathrattle
+  # abstract :attack
+  
   abstract :damaged
   abstract :summoned_other
   abstract :turn_started
